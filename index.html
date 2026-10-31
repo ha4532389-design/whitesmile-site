@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Smile Dental — Modern Dentistry, Gentle Care</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+  :root { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background:#fbfdff; color:#0f172a; }
+  .font-display { font-family: 'Georgia', 'Times New Roman', serif; }
+  .teal-grad { background: linear-gradient(90deg,#0d9488,#0ea5e9); }
+  .teal-text { background: linear-gradient(90deg,#0d9488,#0ea5e9); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all .7s ease; }
+  .fade-in.show { opacity:1; transform:translateY(0); }
+  .card-hover { transition: all .3s ease; }
+  .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -12px rgba(13,148,136,0.25); }
+  .float { animation: floatY 5s ease-in-out infinite; }
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#f1f5f9; }
+  ::-webkit-scrollbar-thumb { background:#99c3bf; border-radius:10px; }
+  .tooth-pattern { background-image: radial-gradient(#0d948822 1px, transparent 1px); background-size: 22px 22px; }
+  input:focus, textarea:focus, select:focus { outline:none; box-shadow:0 0 0 3px rgba(13,148,136,0.25); }
+  .modal-overlay { backdrop-filter: blur(4px); }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-slate-100 transition">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-full teal-grad flex items-center justify-center text-white text-lg">🦷</div>
+      <span class="font-display font-bold text-xl text-slate-800">Bright<span class="teal-text">Smile</span> Dental</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+      <a href="#home" class="hover:text-teal-600 transition">Home</a>
+      <a href="#services" class="hover:text-teal-600 transition">Services</a>
+      <a href="#doctors" class="hover:text-teal-600 transition">Doctors</a>
+      <a href="#gallery" class="hover:text-teal-600 transition">Gallery</a>
+      <a href="#testimonials" class="hover:text-teal-600 transition">Reviews</a>
+      <a href="#faq" class="hover:text-teal-600 transition">FAQ</a>
+      <a href="#contact" class="hover:text-teal-600 transition">Contact</a>
+    </div>
+    <button onclick="openModal()" class="hidden md:inline-block px-5 py-2.5 rounded-full teal-grad text-white text-sm font-semibold hover:opacity-90 transition shadow-md shadow-teal-500/20">Book Appointment</button>
+    <button id="menuBtn" class="md:hidden text-slate-700 text-2xl">&#9776;</button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden flex-col gap-3 px-6 pb-5 text-slate-600 bg-white">
+    <a href="#home" class="block py-1">Home</a>
+    <a href="#services" class="block py-1">Services</a>
+    <a href="#doctors" class="block py-1">Doctors</a>
+    <a href="#gallery" class="block py-1">Gallery</a>
+    <a href="#testimonials" class="block py-1">Reviews</a>
+    <a href="#faq" class="block py-1">FAQ</a>
+    <a href="#contact" class="block py-1">Contact</a>
+    <button onclick="openModal()" class="mt-2 w-full px-5 py-2.5 rounded-full teal-grad text-white text-sm font-semibold">Book Appointment</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="relative pt-32 pb-20 px-6 tooth-pattern overflow-hidden">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div class="fade-in show">
+      <span class="inline-block px-4 py-1.5 mb-6 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-100">✨ Accepting New Patients</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">
+        Your Smile Deserves <span class="teal-text">Gentle, Expert Care</span>
+      </h1>
+      <p class="text-slate-500 text-lg mb-8 max-w-lg">
+        From routine cleanings to complete smile makeovers, our caring team uses modern technology to keep your family's smiles healthy and bright.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-10">
+        <button onclick="openModal()" class="px-7 py-3.5 rounded-full teal-grad text-white font-semibold hover:opacity-90 transition shadow-lg shadow-teal-500/25">Book an Appointment</button>
+        <a href="#services" class="px-7 py-3.5 rounded-full border border-slate-200 text-slate-700 font-semibold hover:border-teal-400 hover:text-teal-600 transition">Our Services</a>
+      </div>
+      <div class="flex gap-10">
+        <div><div class="text-2xl font-bold text-slate-800">15+</div><div class="text-xs text-slate-500">Years Experience</div></div>
+        <div><div class="text-2xl font-bold text-slate-800">12,000+</div><div class="text-xs text-slate-500">Happy Patients</div></div>
+        <div><div class="text-2xl font-bold text-slate-800">4.9★</div><div class="text-xs text-slate-500">Patient Rating</div></div>
+      </div>
+    </div>
+    <div class="relative fade-in show">
+      <div class="absolute -top-10 -right-10 w-72 h-72 bg-teal-200/40 rounded-full blur-3xl"></div>
+      <img src="https://images.pexels.com/photos/4269268/pexels-photo-4269268.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Modern dental clinic" class="relative rounded-3xl shadow-2xl float w-full object-cover h-[420px]">
+      <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">✔</div>
+        <div><div class="text-sm font-semibold text-slate-800">Painless Procedures</div><div class="text-xs text-slate-400">Comfort-first approach</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="py-8 border-y border-slate-100 bg-white">
+  <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-x-12 gap-y-4 text-slate-400 text-sm font-medium">
+    <span>🦷 Cosmetic Dentistry</span>
+    <span>😁 Teeth Whitening</span>
+    <span>🧒 Pediatric Dentistry</span>
+    <span>🪥 Preventive Care</span>
+    <span>🦾 Dental Implants</span>
+    <span>🚨 Emergency Care</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16 fade-in">
+    <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">What We Offer</span>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2">Comprehensive Dental Services</h2>
+    <p class="text-slate-500 max-w-2xl mx-auto mt-4">Everything your family needs for a lifetime of healthy smiles, all under one roof.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-teal-50 flex items-center justify-center text-2xl mb-5">🧼</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">General Checkups</h3>
+      <p class="text-slate-500 text-sm">Routine exams and cleanings to catch problems early and keep your mouth healthy.</p>
+    </div>
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-sky-50 flex items-center justify-center text-2xl mb-5">✨</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">Teeth Whitening</h3>
+      <p class="text-slate-500 text-sm">Professional whitening treatments for a brighter smile in just one visit.</p>
+    </div>
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-amber-50 flex items-center justify-center text-2xl mb-5">🦷</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">Dental Implants</h3>
+      <p class="text-slate-500 text-sm">Permanent, natural-looking solutions to replace missing or damaged teeth.</p>
+    </div>
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-rose-50 flex items-center justify-center text-2xl mb-5">😬</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">Orthodontics</h3>
+      <p class="text-slate-500 text-sm">Braces and clear aligners to straighten teeth at any age.</p>
+    </div>
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-indigo-50 flex items-center justify-center text-2xl mb-5">🧒</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">Pediatric Dentistry</h3>
+      <p class="text-slate-500 text-sm">Gentle, kid-friendly care that makes dental visits fun, not scary.</p>
+    </div>
+    <div class="fade-in card-hover bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
+      <div class="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl mb-5">🚑</div>
+      <h3 class="text-xl font-semibold text-slate-800 mb-2">Emergency Care</h3>
+      <p class="text-slate-500 text-sm">Same-day appointments for toothaches, chips, and other dental emergencies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="py-24 px-6 bg-slate-50 border-y border-slate-100">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Meet The Team</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2">Experienced & Caring Dentists</h2>
+    </div>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="fade-in card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+        <img src="https://images.pexels.com/photos/37458054/pexels-photo-37458054.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" class="w-full h-64 object-cover" alt="Dr. Sarah Bennett">
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800">Dr. Sarah Bennett</h3>
+          <p class="text-teal-600 text-sm mb-2">Lead Dentist, DDS</p>
+          <p class="text-slate-500 text-xs">15 years experience in cosmetic & general dentistry.</p>
+        </div>
+      </div>
+      <div class="fade-in card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+        <img src="https://images.pexels.com/photos/37458097/pexels-photo-37458097.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" class="w-full h-64 object-cover" alt="Dr. Michael Carter">
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800">Dr. Michael Carter</h3>
+          <p class="text-teal-600 text-sm mb-2">Orthodontist, DMD</p>
+          <p class="text-slate-500 text-xs">Specialist in braces, aligners, and bite correction.</p>
+        </div>
+      </div>
+      <div class="fade-in card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+        <img src="https://images.pexels.com/photos/6812464/pexels-photo-6812464.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" class="w-full h-64 object-cover" alt="Dr. James Lee">
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800">Dr. James Lee</h3>
+          <p class="text-teal-600 text-sm mb-2">Oral Surgeon, DDS</p>
+          <p class="text-slate-500 text-xs">Expert in implants and complex extractions.</p>
+        </div>
+      </div>
+      <div class="fade-in card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+        <img src="https://images.pexels.com/photos/6627836/pexels-photo-6627836.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800" class="w-full h-64 object-cover" alt="Dr. Amara Flores">
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800">Dr. Amara Flores</h3>
+          <p class="text-teal-600 text-sm mb-2">Pediatric Dentist, DDS</p>
+          <p class="text-slate-500 text-xs">Making dental visits fun and stress-free for kids.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16 fade-in">
+    <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Clinic</span>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2">A Calm, Modern Environment</h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/305567/pexels-photo-305567.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Dental equipment room">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/6812483/pexels-photo-6812483.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Dental instruments">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/6809639/pexels-photo-6809639.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Dental office setup">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Bright dental office">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/6809648/pexels-photo-6809648.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Advanced dental equipment">
+    <img class="fade-in rounded-2xl object-cover h-56 w-full card-hover" src="https://images.pexels.com/photos/3762402/pexels-photo-3762402.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Beautiful smile">
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-24 px-6 bg-slate-50 border-y border-slate-100">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2">What Our Patients Say</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+        <div class="text-amber-400 mb-3">★★★★★</div>
+        <p class="text-slate-600 text-sm mb-5">"The most comfortable dental experience I've ever had. Dr. Bennett explained everything and the office is spotless."</p>
+        <div class="font-semibold text-slate-800 text-sm">— Olivia R.</div>
+      </div>
+      <div class="fade-in bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+        <div class="text-amber-400 mb-3">★★★★★</div>
+        <p class="text-slate-600 text-sm mb-5">"My kids actually look forward to the dentist now! Dr. Flores is amazing with children."</p>
+        <div class="font-semibold text-slate-800 text-sm">— Marcus T.</div>
+      </div>
+      <div class="fade-in bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+        <div class="text-amber-400 mb-3">★★★★★</div>
+        <p class="text-slate-600 text-sm mb-5">"Got my implant done here and the results look completely natural. Highly recommend this clinic."</p>
+        <div class="font-semibold text-slate-800 text-sm">— Priya K.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-6 max-w-4xl mx-auto">
+  <div class="text-center mb-14 fade-in">
+    <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2">Frequently Asked Questions</h2>
+  </div>
+  <div id="faqList" class="space-y-4">
+    <div class="fade-in faq-item bg-white rounded-xl border border-slate-100 shadow-sm">
+      <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-semibold text-slate-800">
+        Do you accept dental insurance?
+        <span class="faq-icon text-teal-600 text-xl">+</span>
+      </button>
+      <div class="faq-answer px-6 pb-5 text-slate-500 text-sm hidden">Yes, we accept most major insurance plans and also offer flexible payment plans for uninsured patients.</div>
+    </div>
+    <div class="fade-in faq-item bg-white rounded-xl border border-slate-100 shadow-sm">
+      <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-semibold text-slate-800">
+        How often should I visit the dentist?
+        <span class="faq-icon text-teal-600 text-xl">+</span>
+      </button>
+      <div class="faq-answer px-6 pb-5 text-slate-500 text-sm hidden">We recommend a checkup and cleaning every six months to maintain optimal oral health.</div>
+    </div>
+    <div class="fade-in faq-item bg-white rounded-xl border border-slate-100 shadow-sm">
+      <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-semibold text-slate-800">
+        Do you offer emergency appointments?
+        <span class="faq-icon text-teal-600 text-xl">+</span>
+      </button>
+      <div class="faq-answer px-6 pb-5 text-slate-500 text-sm hidden">Yes, we reserve same-day slots for dental emergencies such as severe pain or injury. Call our office directly.</div>
+    </div>
+    <div class="fade-in faq-item bg-white rounded-xl border border-slate-100 shadow-sm">
+      <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-semibold text-slate-800">
+        Is teeth whitening safe?
+        <span class="faq-icon text-teal-600 text-xl">+</span>
+      </button>
+      <div class="faq-answer px-6 pb-5 text-slate-500 text-sm hidden">Absolutely. Our professional whitening treatments are supervised by licensed dentists and are much safer and more effective than over-the-counter kits.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / BOOKING -->
+<section id="contact" class="py-24 px-6 bg-slate-50 border-y border-slate-100">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+    <div class="fade-in">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2 mb-6">Book Your Visit Today</h2>
+      <p class="text-slate-500 mb-8">Fill out the form and tap "Send via WhatsApp" — it'll open a chat with our front desk, pre-filled with your details. Nothing is stored on any server, it's just a direct chat link.</p>
+      <div class="space-y-4 text-slate-600 text-sm">
+        <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center">📍</span> 123 Maple Street, Springfield, IL</div>
+        <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center">📞</span> (555) 123-4567</div>
+        <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center">✉️</span> hello@brightsmiledental.example</div>
+        <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center">🕒</span> Mon–Sat: 8am – 6pm</div>
+      </div>
+      <a href="https://wa.me/15551234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20dental%20appointment." target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#25D366] text-white font-semibold hover:opacity-90 transition shadow-lg shadow-emerald-500/25">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.81L0 32l8.374-2.02A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.46 0-4.77-.67-6.75-1.84l-.484-.287-5.08 1.225 1.26-4.95-.316-.51A12.93 12.93 0 0 1 3.09 16C3.09 8.84 8.84 3.09 16 3.09S28.91 8.84 28.91 16 23.16 28.91 16 28.91zm7.1-9.68c-.39-.195-2.3-1.135-2.657-1.264-.357-.13-.617-.195-.877.195-.26.39-1.006 1.264-1.233 1.524-.227.26-.455.292-.844.098-.39-.195-1.646-.606-3.137-1.933-1.16-1.034-1.943-2.312-2.17-2.702-.227-.39-.024-.6.17-.794.175-.174.39-.455.584-.682.195-.227.26-.39.39-.65.13-.26.065-.487-.032-.682-.098-.195-.877-2.11-1.202-2.89-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.682.098-1.04.487-.357.39-1.364 1.333-1.364 3.25 0 1.916 1.397 3.767 1.592 4.027.195.26 2.75 4.2 6.665 5.886.931.402 1.658.642 2.225.822.935.298 1.787.256 2.46.155.75-.112 2.3-.94 2.624-1.847.325-.908.325-1.686.227-1.847-.098-.162-.357-.26-.747-.455z"/></svg>
+        Chat on WhatsApp Now
+      </a>
+    </div>
+    <form id="bookingForm" class="fade-in bg-white rounded-2xl p-8 shadow-sm border border-slate-100 space-y-4">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">Full Name</label>
+          <input required type="text" id="bName" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800" placeholder="Jane Doe">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">Phone</label>
+          <input required type="tel" id="bPhone" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800" placeholder="(555) 000-0000">
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-500 mb-1">Email</label>
+        <input required type="email" id="bEmail" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800" placeholder="jane@email.com">
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">Preferred Date</label>
+          <input required type="date" id="bDate" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">Service</label>
+          <select id="bService" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+            <option>General Checkup</option>
+            <option>Teeth Whitening</option>
+            <option>Dental Implants</option>
+            <option>Orthodontics</option>
+            <option>Pediatric Dentistry</option>
+            <option>Emergency Care</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-500 mb-1">Message (optional)</label>
+        <textarea id="bMsg" rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800" placeholder="Tell us more about your visit..."></textarea>
+      </div>
+      <button type="submit" class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#25D366] text-white font-semibold hover:opacity-90 transition shadow-lg shadow-emerald-500/25">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.81L0 32l8.374-2.02A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.46 0-4.77-.67-6.75-1.84l-.484-.287-5.08 1.225 1.26-4.95-.316-.51A12.93 12.93 0 0 1 3.09 16C3.09 8.84 8.84 3.09 16 3.09S28.91 8.84 28.91 16 23.16 28.91 16 28.91zm7.1-9.68c-.39-.195-2.3-1.135-2.657-1.264-.357-.13-.617-.195-.877.195-.26.39-1.006 1.264-1.233 1.524-.227.26-.455.292-.844.098-.39-.195-1.646-.606-3.137-1.933-1.16-1.034-1.943-2.312-2.17-2.702-.227-.39-.024-.6.17-.794.175-.174.39-.455.584-.682.195-.227.26-.39.39-.65.13-.26.065-.487-.032-.682-.098-.195-.877-2.11-1.202-2.89-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.682.098-1.04.487-.357.39-1.364 1.333-1.364 3.25 0 1.916 1.397 3.767 1.592 4.027.195.26 2.75 4.2 6.665 5.886.931.402 1.658.642 2.225.822.935.298 1.787.256 2.46.155.75-.112 2.3-.94 2.624-1.847.325-.908.325-1.686.227-1.847-.098-.162-.357-.26-.747-.455z"/></svg>
+        Send via WhatsApp
+      </button>
+      <p class="text-center text-xs text-slate-400">No emails, no servers — this opens WhatsApp directly with your details filled in.</p>
+      <p id="bookingResult" class="hidden text-center text-sm text-teal-700 bg-teal-50 border border-teal-100 rounded-xl px-4 py-3"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="py-10 px-6 text-center text-slate-400 text-sm">
+  <div class="flex items-center justify-center gap-2 mb-3">
+    <div class="w-7 h-7 rounded-full teal-grad flex items-center justify-center text-white text-sm">🦷</div>
+    <span class="font-display font-semibold text-slate-600">BrightSmile Dental</span>
+  </div>
+  Built with plain HTML, CSS &amp; JavaScript only — no server, no database. &copy; <span id="year"></span> BrightSmile Dental. All rights reserved.
+</footer>
+
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="hidden fixed inset-0 z-[60] modal-overlay bg-slate-900/50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl">✕</button>
+    <h3 class="font-display text-2xl font-bold text-slate-800 mb-2">Quick Booking</h3>
+    <p class="text-slate-500 text-sm mb-6">Chat with us instantly on WhatsApp, or fill out our appointment form.</p>
+    <div class="space-y-3">
+      <a href="https://wa.me/15551234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20dental%20appointment." target="_blank" rel="noopener" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white font-semibold hover:opacity-90 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.81L0 32l8.374-2.02A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.46 0-4.77-.67-6.75-1.84l-.484-.287-5.08 1.225 1.26-4.95-.316-.51A12.93 12.93 0 0 1 3.09 16C3.09 8.84 8.84 3.09 16 3.09S28.91 8.84 28.91 16 23.16 28.91 16 28.91zm7.1-9.68c-.39-.195-2.3-1.135-2.657-1.264-.357-.13-.617-.195-.877.195-.26.39-1.006 1.264-1.233 1.524-.227.26-.455.292-.844.098-.39-.195-1.646-.606-3.137-1.933-1.16-1.034-1.943-2.312-2.17-2.702-.227-.39-.024-.6.17-.794.175-.174.39-.455.584-.682.195-.227.26-.39.39-.65.13-.26.065-.487-.032-.682-.098-.195-.877-2.11-1.202-2.89-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.682.098-1.04.487-.357.39-1.364 1.333-1.364 3.25 0 1.916 1.397 3.767 1.592 4.027.195.26 2.75 4.2 6.665 5.886.931.402 1.658.642 2.225.822.935.298 1.787.256 2.46.155.75-.112 2.3-.94 2.624-1.847.325-.908.325-1.686.227-1.847-.098-.162-.357-.26-.747-.455z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <button onclick="scrollToContact()" class="w-full py-3 rounded-xl teal-grad text-white font-semibold hover:opacity-90 transition">Go to Appointment Form</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/15551234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20dental%20appointment." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl shadow-emerald-500/40 hover:scale-110 transition-transform"
+   aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-8 h-8 fill-white"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.744 5.5 2.04 7.81L0 32l8.374-2.02A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.46 0-4.77-.67-6.75-1.84l-.484-.287-5.08 1.225 1.26-4.95-.316-.51A12.93 12.93 0 0 1 3.09 16C3.09 8.84 8.84 3.09 16 3.09S28.91 8.84 28.91 16 23.16 28.91 16 28.91zm7.1-9.68c-.39-.195-2.3-1.135-2.657-1.264-.357-.13-.617-.195-.877.195-.26.39-1.006 1.264-1.233 1.524-.227.26-.455.292-.844.098-.39-.195-1.646-.606-3.137-1.933-1.16-1.034-1.943-2.312-2.17-2.702-.227-.39-.024-.6.17-.794.175-.174.39-.455.584-.682.195-.227.26-.39.39-.65.13-.26.065-.487-.032-.682-.098-.195-.877-2.11-1.202-2.89-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.682.098-1.04.487-.357.39-1.364 1.333-1.364 3.25 0 1.916 1.397 3.767 1.592 4.027.195.26 2.75 4.2 6.665 5.886.931.402 1.658.642 2.225.822.935.298 1.787.256 2.46.155.75-.112 2.3-.94 2.624-1.847.325-.908.325-1.686.227-1.847-.098-.162-.357-.26-.747-.455z"/></svg>
+  <span class="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full animate-ping"></span>
+</a>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll fade-in
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.12 });
+  faders.forEach(el => observer.observe(el));
+
+  // Navbar shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 10);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = !answer.classList.contains('hidden');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+      if (!isOpen) {
+        answer.classList.remove('hidden');
+        icon.textContent = '−';
+      }
+    });
+  });
+
+  // Booking modal
+  function openModal() { document.getElementById('bookingModal').classList.remove('hidden'); }
+  function closeModal() { document.getElementById('bookingModal').classList.add('hidden'); }
+  function scrollToContact() {
+    closeModal();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+  document.getElementById('bookingModal').addEventListener('click', (e) => {
+    if (e.target.id === 'bookingModal') closeModal();
+  });
+
+  // Set min date for date picker to today
+  const bDate = document.getElementById('bDate');
+  bDate.min = new Date().toISOString().split('T')[0];
+
+  // Clinic WhatsApp number (include country code, no + or spaces)
+  const CLINIC_WHATSAPP_NUMBER = '15551234567';
+
+  // Booking form - fully client-side, no network requests.
+  // Details are packaged into a WhatsApp message and opened via wa.me — no server, no email backend involved.
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingResult = document.getElementById('bookingResult');
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('bName').value.trim();
+    const phone = document.getElementById('bPhone').value.trim();
+    const email = document.getElementById('bEmail').value.trim();
+    const date = document.getElementById('bDate').value;
+    const service = document.getElementById('bService').value;
+    const msg = document.getElementById('bMsg').value.trim();
+
+    // Keep an optional local copy in the browser only (not sent anywhere)
+    const bookings = JSON.parse(localStorage.getItem('brightsmile_bookings') || '[]');
+    bookings.push({ name, phone, email, date, service, message: msg, submittedAt: new Date().toISOString() });
+    localStorage.setItem('brightsmile_bookings', JSON.stringify(bookings));
+
+    // Build the WhatsApp message text
+    const lines = [
+      `Hello BrightSmile Dental! I'd like to request an appointment.`,
+      `👤 Name: ${name}`,
+      `📞 Phone: ${phone}`,
+      `✉️ Email: ${email}`,
+      `🦷 Service: ${service}`,
+      `📅 Preferred Date: ${date}`,
+    ];
+    if (msg) lines.push(`📝 Message: ${msg}`);
+    const waText = encodeURIComponent(lines.join('\n'));
+    const waUrl = `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${waText}`;
+
+    bookingResult.textContent = `Thanks, ${name || 'friend'}! Opening WhatsApp now so you can send your appointment details directly to our front desk...`;
+    bookingResult.classList.remove('hidden');
+    bookingForm.reset();
+
+    window.open(waUrl, '_blank', 'noopener');
+  });
+</script>
+
+</body>
+</html>
